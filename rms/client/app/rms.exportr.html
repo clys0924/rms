@@ -1,0 +1,21 @@
+<html>
+  <head>
+    <title>RMS</title>
+    <meta charset="UTF-8">
+  </head>
+
+
+  <body>
+      <p>试剂出库
+      </p>
+    
+      
+      <div *ngFor = "let rms of rmss">
+        {{rms.item}}<br/>
+        <input class="number" type="number" #exportNum>
+        <button (click)="exportRea($event, rms.item,exportNum,rms.num)" >保存</button>
+        <p>当前库存：{{rms.num}}</p>
+
+      </div>
+  </body>
+</html>
