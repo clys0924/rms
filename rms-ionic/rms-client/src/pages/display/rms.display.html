@@ -1,0 +1,17 @@
+
+
+
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      RMS
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+      <h1>当前试剂库存量</h1>
+      <div *ngFor = "let rms of rmss">
+        <p>{{rms.item}}<span style="font-size:18px;">&nbsp;&nbsp;</span>{{rms.num}}<span style="font-size:18px;">&nbsp;&nbsp;</span>{{rms.location}}</p>
+      </div>
+</ion-content>
