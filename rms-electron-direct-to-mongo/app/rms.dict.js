@@ -9,7 +9,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-// import { RmsService } from './rms.service'
 var rms_service_1 = require('./rms.service');
 require('rxjs/add/operator/map');
 var RmsDictr = (function () {
@@ -17,19 +16,13 @@ var RmsDictr = (function () {
         this.rmsDict = rmsDict;
     }
     RmsDictr.prototype.ngOnInit = function () {
-        var _this = this;
         this.rmss = [];
         console.log("dict");
-        this.rmsDict.getDict()
-            .map(function (res) { return res.json(); })
-            .subscribe(function (rmss) { return _this.rmss = rmss; });
-        console.log(this.rmsDict.getDict().map(function (res) { return res.json(); }).subscribe(function (rmss) { return _this.rmss = rmss; }));
+        this.rmss = this.rmsDict.getDict();
     };
     RmsDictr.prototype.deleteItem = function ($event, item) {
         console.log("delete:" + item);
-        this.rmsDict.delDict(item)
-            .map(function (newNum) { return newNum.json(); })
-            .subscribe(function (newNums) { return newNums = newNums; });
+        this.rmsDict.delDict(item);
         console.log("delete: " + item + " Completed");
     };
     RmsDictr.prototype.addItem = function ($event, item, unit, mfrs) {
@@ -41,9 +34,7 @@ var RmsDictr = (function () {
             mfrs: mfrs.value
         };
         console.log(newItem);
-        this.rmsDict.addDict(newItem)
-            .map(function (newNum) { return newNum.json(); })
-            .subscribe(function (newNums) { return newNums = newNums; });
+        this.rmsDict.addDict(newItem);
         console.log("add: " + item + " Completed");
     };
     RmsDictr = __decorate([

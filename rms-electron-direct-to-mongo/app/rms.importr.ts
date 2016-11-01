@@ -18,10 +18,10 @@ export class RmsImport {
   ngOnInit(){
     this.rmss = [];
     console.log("importr");
-    this.rmsImportr.getRms()
-    .map(res => res.json())
-    .subscribe(rmss => this.rmss = rmss);
-    console.log(this.rmsImportr.getRms().map(res => res.json()).subscribe(rmss => this.rmss = rmss))
+    this.rmss = this.rmsImportr.getRms()
+    // .map(res => res.json())
+    // .subscribe(rmss => this.rmss = rmss);
+    // console.log(this.rmsImportr.getRms().map(res => res.json()).subscribe(rmss => this.rmss = rmss))
   }
 
 
@@ -38,8 +38,8 @@ export class RmsImport {
     };
       console.log(newNum);
       this.rmsImportr.rmsImport(newNum)
-      .map(newNum => newNum.json())
-      .subscribe(newNums => newNums = newNums);
+      // .map(newNum => newNum.json())
+      // .subscribe(newNums => newNums = newNums);
           
 
       console.log(newNum)

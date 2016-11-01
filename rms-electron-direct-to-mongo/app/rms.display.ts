@@ -3,7 +3,7 @@ import { RmsService } from './rms.service'
 import { RmsImportr } from './rms.service'
 import 'rxjs/add/operator/map'
 import { Rms } from './rms'
-
+declare var electron: any;
 
 @Component({
   moduleId:module.id,
@@ -19,9 +19,9 @@ export class RmsDisplay {
   ngOnInit(){
     this.rmss = [];
     console.log("1111");
-    this.rmsService.getRms()
-    .map(res => res.json())
-    .subscribe(rmss => this.rmss = rmss);
-    console.log(this.rmsService.getRms().map(res => res.json()).subscribe(rmss => this.rmss = rmss))
+    this.rmss = this.rmsService.getRms()
+    // .map(res => res.json())
+    // .subscribe(rmss => this.rmss = rmss);
+    // console.log(this.rmsService.getRms().map(res => res.json()).subscribe(rmss => this.rmss = rmss))
   }
 };

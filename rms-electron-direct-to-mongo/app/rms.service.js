@@ -16,8 +16,11 @@ var RmsService = (function () {
         this.http = http;
     }
     RmsService.prototype.getRms = function () {
+        var result;
         console.log("storage");
-        return this.http.get(RmsService.serverUrl + 'rms/display');
+        var mainValue = electron.ipcRenderer.sendSync('display', "display");
+        console.log(mainValue);
+        return mainValue;
     };
     RmsService.serverUrl = 'http://127.0.0.1:3000/';
     RmsService = __decorate([
@@ -33,12 +36,14 @@ var RmsImportr = (function () {
         this.http = http;
     }
     RmsImportr.prototype.getRms = function () {
-        console.log("importr");
-        return this.http.get(RmsService.serverUrl + 'rms/display');
+        var mainValue = electron.ipcRenderer.sendSync('display', "display");
+        console.log(mainValue);
+        return mainValue;
     };
     RmsImportr.prototype.rmsImport = function (newNum) {
         console.log('importr/' + newNum.item + '/' + newNum.num + '/' + newNum.location);
-        return this.http.get(RmsService.serverUrl + 'importr/' + newNum.item + '/' + newNum.num + '/' + newNum.location);
+        electron.ipcRenderer.send('import', newNum.item, newNum.num, newNum.location);
+        // return this.http.get(RmsService.serverUrl + 'importr/'+newNum.item+'/'+newNum.num+'/'+newNum.location)
     };
     RmsImportr = __decorate([
         core_1.Injectable(), 
@@ -52,16 +57,20 @@ var RmsDict = (function () {
         this.http = http;
     }
     RmsDict.prototype.getDict = function () {
-        console.log("dict");
-        return this.http.get(RmsService.serverUrl + 'rms/dict');
+        console.log('dict');
+        var mainValue = electron.ipcRenderer.sendSync('dict', "dict");
+        console.log(mainValue);
+        return mainValue;
     };
     RmsDict.prototype.delDict = function (newitem) {
         console.log('dict/delete/' + newitem);
-        return this.http.get(RmsService.serverUrl + 'dict/delete/' + newitem);
+        electron.ipcRenderer.send('deletedict', newitem);
+        // return this.http.get(RmsService.serverUrl + 'dict/delete/'+newitem)
     };
     RmsDict.prototype.addDict = function (newitem) {
         console.log('dict/add/' + newitem.item + '/' + newitem.unit + '/' + newitem.mfrs);
-        return this.http.get(RmsService.serverUrl + 'dict/add/' + newitem.item + '/' + newitem.unit + '/' + newitem.mfrs);
+        electron.ipcRenderer.send('adddict', newitem.item, newitem.unit, newitem.mfrs);
+        // return this.http.get(RmsService.serverUrl + 'dict/add/'+newitem.item+'/'+newitem.unit+'/'+newitem.mfrs)
     };
     RmsDict = __decorate([
         core_1.Injectable(), 
@@ -75,12 +84,14 @@ var RmsExportr = (function () {
         this.http = http;
     }
     RmsExportr.prototype.getRms = function () {
-        console.log("exportr");
-        return this.http.get(RmsService.serverUrl + 'rms/display');
+        var mainValue = electron.ipcRenderer.sendSync('display', "display");
+        console.log(mainValue);
+        return mainValue;
     };
     RmsExportr.prototype.rmsExport = function (newNum) {
         console.log('exportr/' + newNum.item + '/' + newNum.num);
-        return this.http.get(RmsService.serverUrl + 'exportr/' + newNum.item + '/' + newNum.num);
+        electron.ipcRenderer.send('export', newNum.item, newNum.num);
+        // return this.http.get(RmsService.serverUrl + 'exportr/'+newNum.item+'/'+newNum.num)
     };
     RmsExportr = __decorate([
         core_1.Injectable(), 

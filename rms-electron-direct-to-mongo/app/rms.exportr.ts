@@ -18,10 +18,10 @@ export class RmsExport {
   ngOnInit(){
     this.rmss = [];
     console.log("Exportr");
-    this.rmsExportr.getRms()
-    .map(res => res.json())
-    .subscribe(rmss => this.rmss = rmss);
-    console.log(this.rmsExportr.getRms().map(res => res.json()).subscribe(rmss => this.rmss = rmss))
+    this.rmss = this.rmsExportr.getRms()
+    // .map(res => res.json())
+    // .subscribe(rmss => this.rmss = rmss);
+    // console.log(this.rmsExportr.getRms().map(res => res.json()).subscribe(rmss => this.rmss = rmss))
   }
 
 
@@ -32,7 +32,6 @@ export class RmsExport {
     var y = parseInt(onum)
     if(x > y){
       x = y
-      // res.send("jfdkef")
     } else {
       x = y - x
     }
@@ -42,10 +41,8 @@ export class RmsExport {
     };
       console.log(newNum);
       this.rmsExportr.rmsExport(newNum)
-      .map(newNum => newNum.json())
-      .subscribe(newNums => newNums = newNums);
-          
-
+      // .map(newNum => newNum.json())
+      // .subscribe(newNums => newNums = newNums);
       console.log(newNum)
     }
 }

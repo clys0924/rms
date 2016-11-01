@@ -17,13 +17,12 @@ var RmsImport = (function () {
         this.rmsImportr = rmsImportr;
     }
     RmsImport.prototype.ngOnInit = function () {
-        var _this = this;
         this.rmss = [];
         console.log("importr");
-        this.rmsImportr.getRms()
-            .map(function (res) { return res.json(); })
-            .subscribe(function (rmss) { return _this.rmss = rmss; });
-        console.log(this.rmsImportr.getRms().map(function (res) { return res.json(); }).subscribe(function (rmss) { return _this.rmss = rmss; }));
+        this.rmss = this.rmsImportr.getRms();
+        // .map(res => res.json())
+        // .subscribe(rmss => this.rmss = rmss);
+        // console.log(this.rmsImportr.getRms().map(res => res.json()).subscribe(rmss => this.rmss = rmss))
     };
     RmsImport.prototype.importRea = function ($event, item, importNum, onum, location) {
         console.log(item);
@@ -37,9 +36,9 @@ var RmsImport = (function () {
             location: location.value
         };
         console.log(newNum);
-        this.rmsImportr.rmsImport(newNum)
-            .map(function (newNum) { return newNum.json(); })
-            .subscribe(function (newNums) { return newNums = newNums; });
+        this.rmsImportr.rmsImport(newNum);
+        // .map(newNum => newNum.json())
+        // .subscribe(newNums => newNums = newNums);
         console.log(newNum);
     };
     RmsImport = __decorate([

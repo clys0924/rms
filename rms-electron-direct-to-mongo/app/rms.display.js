@@ -16,13 +16,12 @@ var RmsDisplay = (function () {
         this.rmsService = rmsService;
     }
     RmsDisplay.prototype.ngOnInit = function () {
-        var _this = this;
         this.rmss = [];
         console.log("1111");
-        this.rmsService.getRms()
-            .map(function (res) { return res.json(); })
-            .subscribe(function (rmss) { return _this.rmss = rmss; });
-        console.log(this.rmsService.getRms().map(function (res) { return res.json(); }).subscribe(function (rmss) { return _this.rmss = rmss; }));
+        this.rmss = this.rmsService.getRms();
+        // .map(res => res.json())
+        // .subscribe(rmss => this.rmss = rmss);
+        // console.log(this.rmsService.getRms().map(res => res.json()).subscribe(rmss => this.rmss = rmss))
     };
     RmsDisplay = __decorate([
         core_1.Component({

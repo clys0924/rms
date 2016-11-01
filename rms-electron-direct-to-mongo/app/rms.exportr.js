@@ -17,13 +17,12 @@ var RmsExport = (function () {
         this.rmsExportr = rmsExportr;
     }
     RmsExport.prototype.ngOnInit = function () {
-        var _this = this;
         this.rmss = [];
         console.log("Exportr");
-        this.rmsExportr.getRms()
-            .map(function (res) { return res.json(); })
-            .subscribe(function (rmss) { return _this.rmss = rmss; });
-        console.log(this.rmsExportr.getRms().map(function (res) { return res.json(); }).subscribe(function (rmss) { return _this.rmss = rmss; }));
+        this.rmss = this.rmsExportr.getRms();
+        // .map(res => res.json())
+        // .subscribe(rmss => this.rmss = rmss);
+        // console.log(this.rmsExportr.getRms().map(res => res.json()).subscribe(rmss => this.rmss = rmss))
     };
     RmsExport.prototype.exportRea = function ($event, item, exportNum, onum) {
         console.log(item);
@@ -41,9 +40,9 @@ var RmsExport = (function () {
             num: x
         };
         console.log(newNum);
-        this.rmsExportr.rmsExport(newNum)
-            .map(function (newNum) { return newNum.json(); })
-            .subscribe(function (newNums) { return newNums = newNums; });
+        this.rmsExportr.rmsExport(newNum);
+        // .map(newNum => newNum.json())
+        // .subscribe(newNums => newNums = newNums);
         console.log(newNum);
     };
     RmsExport = __decorate([
