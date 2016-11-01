@@ -1,0 +1,2 @@
+1.打开VSCODE进入rms-server运行npm start
+2.另开一个VSCODE，修改\rms-client\src\providers\rms.service.ts中“static serverUrl”地址为服务器地址，之后运行运行npm start
