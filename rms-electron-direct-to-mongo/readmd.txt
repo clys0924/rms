@@ -1,2 +1,0 @@
-打开VSCODE，修改\rms-client\src\providers\rms.service.ts中“static serverUrl”地址为服务器地址，之后运行运行npm start
-此版本为直接执行MONGO语句，无须SERVER端部署程序，只需运行MONGO数据库
