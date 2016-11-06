@@ -1,0 +1,9 @@
+<p>试剂出库</p>
+
+
+<div *ngFor = "let rms of rmss | async">
+  {{rms.item}}<br/>
+  <input class="number" type="number" #exportNum>
+  <button (click)="exportRea($event, rms.item,exportNum,rms.num,rms._id)" >保存</button>
+  <p>当前库存：{{rms.num}}</p>
+</div>

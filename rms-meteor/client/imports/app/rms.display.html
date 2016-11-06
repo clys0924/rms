@@ -1,0 +1,4 @@
+<p>当前试剂库存量</p>
+<div *ngFor = "let rms of rmss | async">
+  <p>{{rms.item}}<span style="font-size:18px;">&nbsp;&nbsp;</span>{{rms.num}}<span style="font-size:18px;">&nbsp;&nbsp;</span>{{rms.location}}</p>
+</div>
