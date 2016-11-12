@@ -1,8 +1,0 @@
-<p>试剂入库</p>
-<div *ngFor = "let rms of rmss | async">
-  试剂名称:{{rms.item}}<br/>
-  <P>数量:<input class="number" type="number" #importNum></P>
-  <P>位置:<input class="text" type="text" #location></P>
-  <p>当前库存：{{rms.num}}
-  <button (click)="importRea($event, rms.item,importNum,rms.num,location,rms._id)" >保存</button></p>
-</div>
